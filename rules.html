@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head> 
+  <title>Lambs and Tigers</title>
+<style>
+body {
+  background-image: url('forest1.jpg'); 
+  background-size: 1530px 755px;
+}  
+.button {
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none; 
+  height: 50px; 
+  width: 150px;
+  display: inline-block;
+  font-size: 16px;
+  margin: 5px;
+  cursor: pointer; 
+  background-color: crimson; 
+  transition: all 0.5s; 
+} 
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+</head>
+<body>    
+  <h1 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ; color: black; position: absolute; left: 750px; top: 100px;">Rules</h1>   
+  <pre style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+  color: black; font-size: large; position: absolute; left : 570px; top: 200px;">
+      <b>The game starts with three tigers, one placed at the 
+      apex, and the other two placed in the boxes next to it. 
+      All goats start off the board.
+      The coins should be placed at the intersections of the 
+      board lines. 
+      The player controlling the goat starts first by placing a 
+      goat coin at any free intersection points on the board.
+      Then it is the tiger's turn. One of the tigers is moved to 
+      its adjacent intersection point. 
+      Moves alternate between players.
+      A tiger captures a goat by jumping over to an adjacent 
+      free position. 
+      Goat coins can't move until all the 15 are placed on the 
+      board.</b>
+      
+  <a href="home.html"><div style="position: absolute; left : 150px; top : 300px;"><button class="button button1"><span><b>Back</b></span></button></div></a>
+</body>
+</html>

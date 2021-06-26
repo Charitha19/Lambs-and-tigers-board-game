@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Lambs and Tigers</title>
+    <style>
+        .Goat {
+            width: 40px;
+            height: 42px;
+        }  
+            .Goat:hover, .Tiger :hover, .Empty :hover {
+                background-color: gray;
+            }
+       body {
+  background-image: url('background.jpg');
+  background-repeat: no-repeat ;
+  background-attachment: fixed; 
+  background-size: cover;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+.button1 {
+  background-color : #31B0D5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 4px;
+  border-color: #46b8da;
+}
+ #mybutton1 {
+  position: fixed;
+  bottom: -4px;
+  left: 10px;
+}
+
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+
+.select-selected {
+  background-color: DodgerBlue;
+}
+
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+}
+
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+}
+
+/* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: DodgerBlue;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.button1 {background-color: #4CAF50;}
+.button2 {background-color: #008CBA;}
+.button3 {background-color: #FF8C00;}
+.button4 {background-color: #008CBA;}
+.button5 {background-color: #FF0000;}
+.button6 {background-color: #696969;} 
+.button7 {background-color: cornflowerblue;}
+    </style>
+
+    
+    <script src="js/UIUtility.js"></script>
+    <script src="js/TigersAndGoats.js"></script>
+    <script>
+        window.onload = function () {
+                window.currentGameState = new GameState();
+                window.isInProgress = false;
+                window.selectedId = -1;
+                window.MoveHistory = new HistoryStack();
+                UpdateUserInterface();
+        }
+    </script>
+</head>
+<body id="bg">
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <div style="position: absolute; top: 100px; left: 520px">
+                    <img src="images/Board.png" style="width:500px; height:400px;" class="center" z-index:5 />
+                    <img id="100" class="Goat" src="images/Goat.png" style="position:absolute; top:20px; left:399px; z-index:10;" />
+                    <label style="position:absolute; z-index:20; top:60px; left:408px; width:40px; height:40px; font-family:Arial; font-size:32px; color:red;" id="OutSideGoats"></label>
+                    <img onclick="ProcessUserInput(this)" id="0" class="Goat" src="images/Goat.png" style="position:absolute; top:-11px; left:231px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="1" class="Goat" src="images/Goat.png" style="position:absolute; top:129px; left:24px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="2" class="Goat" src="images/Goat.png" style="position:absolute; top:129px; left:148px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="3" class="Goat" src="images/Goat.png" style="position:absolute; top:129px; left:204px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="4" class="Goat" src="images/Goat.png" style="position:absolute; top:129px; left:261px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="5" class="Goat" src="images/Goat.png" style="position:absolute; top:129px; left:310px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="6" class="Goat" src="images/Goat.png" style="position:absolute; top:129px; left:435px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="7" class="Goat" src="images/Goat.png" style="position:absolute; top:191px; left:24px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="8" class="Goat" src="images/Goat.png" style="position:absolute; top:191px; left:116px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="9" class="Goat" src="images/Goat.png" style="position:absolute; top:191px; left:193px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="10" class="Goat" src="images/Goat.png" style="position:absolute; top:191px; left:275px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="11" class="Goat" src="images/Goat.png" style="position:absolute; top:191px; left:342px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="12" class="Goat" src="images/Goat.png" style="position:absolute; top:191px; left:440px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="13" class="Goat" src="images/Goat.png" style="position:absolute; top:253px; left:24px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="14" class="Goat" src="images/Goat.png" style="position:absolute; top:253px; left:85px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="15" class="Goat" src="images/Goat.png" style="position:absolute; top:253px; left:183px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="16" class="Goat" src="images/Goat.png" style="position:absolute; top:253px; left:289px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="17" class="Goat" src="images/Goat.png" style="position:absolute; top:253px; left:376px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="18" class="Goat" src="images/Goat.png" style="position:absolute; top:253px; left:435px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="19" class="Goat" src="images/Goat.png" style="position:absolute; top:370px; left:20px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="20" class="Goat" src="images/Goat.png" style="position:absolute; top:370px; left:160px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="21" class="Goat" src="images/Goat.png" style="position:absolute; top:370px; left:313px; z-index:10;" />
+                    <img onclick="ProcessUserInput(this)" id="22" class="Goat" src="images/Goat.png" style="position:absolute; top:370px; left:440px; z-index:10;" />
+                    </div>
+                </td>
+                <td valign="top" style="width:600px">
+                    <table>
+                   <tr>
+                            <td>
+                                <p style="position: absolute; left : 1200px; top : 10px; color:black;">Side to move: <span id="SideToMove" style="color: cornsilk">Tiger</span></p>
+                                <p style="position: absolute; left : 1200px; top : 50px; color:black;">Game Status: <span id="Status" style="color: cornsilk"></span></p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="position: absolute; left : 1200px; top : 110px; color:black">
+                                Game Type:  <select id="ComputerSide" onchange="changeGameType(this)">
+                                                <optgroup label="Computer plays as:">
+                                                    <option value="tigers">Computer plays as tigers</option>
+                                                    <option value="goats">Computer plays as goats</option>
+                                                    <option value="computer">Computer vs Computer</option>
+                                                </optgroup>
+                                            </select>
+                                <br />
+                            </td>    
+                        </tr>
+
+                        <tr>
+                            <td class="custom-select" style="width:200px;">
+                             <!--   <h3>Tigers</h3> -->
+                                 <select id="TigersAlgorithm">
+                                                <optgroup label="Choose a search algorithm ...">
+                                                    <option value="expectimax">Expectimax</option>
+                                                    <option value="minimax">Minimax</option>
+                                                    <option value="alphabeta">Alpha-Beta Pruning</option>                                                    
+                                                    <option value="alphabetawithmemory">Alpha-Beta Pruning With Memory</option>
+                                                    <option value="scout">Scout</option>
+                                                    <option value="scoutwithttagent">Scout With Memory</option>
+                                                    <option value="mtdfagent">MTD(f)</option>
+                                                </optgroup>
+                                            </select>
+                                <br /><br />
+
+                                <br /><input type="range" min="1" max="20" id="TigersDepth" value="20" hidden/><br />
+                               <br /><input type="range" min="2" max="60" id="TigersTime" value="2" hidden><br />
+                                <span id="TigersCurrentDepth" hidden></span> <br />
+                                <span id="TigersCurrentScore" hidden></span><br />
+                                <span id="TigersCurrentAction" hidden></span><br />
+                                <span id="TigersNodesExpanded" hidden></span><br />
+                                <span id="TigersLeafNodesReached" hidden></span><br />
+                                <progress id="TigersCurrentProgress" max="100" hidden></progress>
+
+                            </td>
+                            <td class="custom-select" style="width:200px;">
+                             <!--   <h3>Goats</h3>  -->
+                                  <select id="GoatsAlgorithm" disabled>
+                                                <optgroup label="Choose a search algorithm ...">
+                                                    <option value="expectimax">Expectimax</option>
+                                                    <option value="minimax">Minimax</option>
+                                                    <option value="alphabeta">Alpha-Beta Pruning</option>
+                                                    <option value="alphabetawithmemory">Alpha-Beta Pruning With Memory</option>
+                                                    <option value="scout">Scout</option>
+                                                    <option value="scoutwithttagent">Scout With Memory</option>
+                                                    <option value="mtdfagent">MTD(f)</option>
+                                                </optgroup>
+                                            </select><br /><br />
+
+                                <br /><input disabled type="range" min="1" max="20" id="GoatsDepth" value="20" hidden/><br />
+                                <br /><input disabled type="range" min="2" max="60" id="GoatsTime" value="2" hidden/><br />
+                                <span id="GoatsCurrentDepth" hidden></span> <br />
+                                <span id="GoatsCurrentScore" hidden></span><br />
+                                <span id="GoatsCurrentAction" hidden></span><br />
+                                <span id="GoatsNodesExpanded" hidden></span><br />
+                               <span id="GoatsLeafNodesReached" hidden></span><br />
+                                <progress id="GoatsCurrentProgress" max="100" hidden></progress>
+
+                            </td>
+                        </tr>
+
+                    </table><br />                    
+                    <div style="position: absolute; left : 1200px; top : 150px;"><button onclick="startGame()" id="StartButton" type="button" class="button button1">Start</button></div>
+                    <div style="position: absolute; left : 1200px; top : 220px;"><button onclick="moveBack()" id="MoveBackButton" type="button" class="button button2">&lt;</button></div>
+                    <div style="position: absolute; left : 1280px; top : 220px;"><button onclick="moveNow()" id="MoveNowButton" type="button" class="button button3">Move Now!</button></div>
+                    <div style="position: absolute; left : 1433px; top : 220px;"><button onclick="moveForward()" id="MoveForwardButton" type="button" class="button button4">&gt;</button></div> 
+
+                    <div style="position: absolute; left : 1200px; top : 290px;"><button onclick="stopGame()" id="StopButton" type="button" class="button button5">Stop</button></div>
+                    <div style="position: absolute; left : 1200px; top : 360px;"><button onclick="resetGame()" id="ResetButton" type="reset" class="button button6">Reset</button></div> 
+                    <a href="home.html"><div style="position: absolute; left : 1200px; top : 430px;"><button type="button" class="button button7">Back</button></div></a>
+                    <textarea readonly id="output" style="width:580px; height:100px" hidden></textarea> 
+                </td>
+            </tr>     
+        </table>
+    </div>
+</html>

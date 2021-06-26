@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head> 
+  <title>Lambs and Tigers</title>
+<style>
+body {
+  background-image: url('forest1.jpg'); 
+  background-size: 1530px 755px;
+}  
+.button {
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none; 
+  height: 50px; 
+  width: 150px;
+  display: inline-block;
+  font-size: 20px;
+  margin: 5px;
+  cursor: pointer; 
+  background-color: crimson;
+  transition: all 0.5s; 
+} 
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+</head>
+<body>    
+  <h1 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ; color: black; position: absolute; left: 750px; top: 100px;">History</h1>   
+  <pre style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+  color: black; font-size: large; position: absolute; left : 570px; top: 200px;">
+      <b>Lambs and Tigers is a strategic, two-player board game 
+      originated in Tamil Nadu(<i>Aadu Puli Aattam</i>) and is also 
+      played in Karnataka(<i>Huli gatta</i>) and Andhra Pradesh
+      (<i>Puli Joodam or Puli - Meka</i>). 
+      The game is asymmetric in that one player controls three 
+      tigers and the other player controls up to 15 goats. 
+      The tigers 'hunt' the goats while the goats attempt to block 
+      the tigers' movements. 
+      In ancient days, we can see the engravings of the game 
+      chart in every veranda.</b></pre> 
+  <a href="home.html"><div style="position: absolute; left : 750px; top : 550px;"><button class="button"><span><b>Back</b></span></button></div></a>
+</body>
+</html>
